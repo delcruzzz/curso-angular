@@ -1,0 +1,48 @@
+<h1>DragonBall Page</h1>
+<hr>
+
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <h3>Agregar: {{ inputName() }} - {{ inputPower() }}</h3>
+    <input
+      [value]="inputName()"
+      (change)="inputName.set(txtName.value)"
+      (input)="inputName.set(txtName.value)"
+      #txtName
+      type="text"
+      class="form-control"
+      placeholder="nombre">
+    <input
+      [value]="inputPower()"
+      (change)="inputPower.set(+numberPower.value)"
+      (input)="inputPower.set(+numberPower.value)"
+      #numberPower
+      type="number"
+      class="form-control mt-2"
+      placeholder="poder">
+
+    <button (click)="addCharacter()" class="btn btn-primary mt-2">Agregar</button>
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <h3>Personajes fuertes</h3>
+    <ul>
+      <!-- iterar personajes de con el nuevo flujo -->
+      @for (character of characters(); track character.id; let idx = $index) {
+        <!-- forma de condicionar elementos con el nuevo flujo -->
+         @if (character.power > 1000) {
+           <li id="{{ character.id }}">
+             <span>{{ idx + 1 }} - {{ character.name }}</span>
+             <strong
+               [class.text-primary]="character.power < 9000"
+               [class.text-danger]="character.power > 9000">({{ character.power }})</strong>
+           </li>
+         } @else {
+          <li>
+            <strong>Aquí no hay nadie</strong>
+          </li>
+         }
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<h3>{{ nameList() ?? "Listado de personajes" }}</h3>
+<ul>
+  <!-- iterar personajes de con el nuevo flujo -->
+  @for (character of characters(); track character.id; let idx = $index) {
+  <!-- forma de condicionar elementos con el nuevo flujo -->
+  @if (character.power > 1000) {
+  <li id="{{ character.id }}">
+    <span>{{ idx + 1 }} - {{ character.name }}</span>
+    <strong [class.text-primary]="character.power < 9000" [class.text-danger]="character.power > 9000">({{
+      character.power }})</strong>
+  </li>
+  } @else {
+  <li>
+    <strong>Aquí no hay nadie</strong>
+  </li>
+  }
+  }
+</ul>
