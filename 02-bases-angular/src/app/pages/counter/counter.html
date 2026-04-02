@@ -1,0 +1,16 @@
+<h1>Bienvenido CounterApp</h1>
+
+<!-- se específica el contador -->
+<p>Contador: {{ counter }}</p>
+<p>Contador por signal: {{ counterSignal() }}</p>
+
+<!-- botones de acción, sumar, restar y restablecer valor -->
+<button (click)="increaseByOne()">Sumar +1</button>
+<button (click)="decreaseByOne()">Restar -1</button>
+<button (click)="resetCounter()">Restablecer</button>
+
+<hr>
+
+<button (click)="increaseByOneSignal()">Sumar +1</button>
+<button (click)="decreaseByOneSignal()">Restar -1</button>
+<button (click)="resetCounterSignal()">Restablecer</button>

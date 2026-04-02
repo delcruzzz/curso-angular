@@ -1,0 +1,30 @@
+<style>
+  nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #212121;
+    color: white;
+    padding: 10px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+  nav a.active {
+    color: red;
+  }
+</style>
+
+<nav>
+  <!-- creación de routerLink -->
+
+  <!--
+    cuando ponemos el [routerLink]="" al igual que el [routerLinkActive]="" entre corchetes es porque vamos a hacer
+    referencia a un signal o a una señal computada, (valores dinámicos)
+  -->
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Counter</a>
+  <a routerLink="/hero" routerLinkActive="active">Hero</a>
+  <a href="#">Others</a>
+</nav>
